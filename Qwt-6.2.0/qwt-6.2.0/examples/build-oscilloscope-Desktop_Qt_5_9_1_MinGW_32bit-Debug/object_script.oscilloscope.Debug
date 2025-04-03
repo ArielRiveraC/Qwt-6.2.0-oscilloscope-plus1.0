@@ -1,0 +1,12 @@
+INPUT(
+./debug\SignalData.o
+./debug\Plot.o
+./debug\Knob.o
+./debug\WheelBox.o
+./debug\SamplingThread.o
+./debug\MainWindow.o
+./debug\main.o
+./debug\imagewidget_copy.o
+./debug\ImageWidget.o
+./debug\moc_ImageWidget.o
+);

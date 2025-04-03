@@ -1,0 +1,12 @@
+INPUT(
+./release\SignalData.o
+./release\Plot.o
+./release\Knob.o
+./release\WheelBox.o
+./release\SamplingThread.o
+./release\MainWindow.o
+./release\main.o
+./release\imagewidget_copy.o
+./release\ImageWidget.o
+./release\moc_ImageWidget.o
+);
