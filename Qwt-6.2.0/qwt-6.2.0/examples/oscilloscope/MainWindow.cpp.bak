@@ -65,8 +65,6 @@ MainWindow::MainWindow( QWidget* parent )
     layout->addWidget( m_plot, 10 );
     layout->addLayout( vLayout1 );
 
-    m_vectorstring = new QVector<QString>(0);
-
     connect( m_Stopbutton, &QPushButton::released, this,
              &MainWindow::handle_Stopbutton);
     connect( m_Capturebutton, &QPushButton::released, this,
@@ -172,21 +170,14 @@ void MainWindow::handle_Capturebutton()
                   QString("Freq_%1 Hz").arg(frequency());
 
     m_captureListWidget->addItem(str);
-    m_vectorstring->append(fileBase + str);
-    m_plot->getplotScreenShot(fileBase + str, 800, 600);
+    m_plot->getplotScreenShot(800, 600);
 }
 
 void MainWindow::handle_ItemClicked()
 {
     int index_vectorstring = m_captureListWidget->currentRow();
     QString filename = m_captureListWidget->item(index_vectorstring)->text() + ".png";
-    /*/ Debug*
-    QMessageBox msgBox;
-    msgBox.setText("index_vectorstring = " + QString("%1").arg(index_vectorstring));
-    //msgBox.setText("index_vectorstring = ");
-    msgBox.setStyleSheet("background-color: lightblue;");
-    msgBox.exec();
-    /*/
+
     ImageWidget* ImageView = new ImageWidget();
     ImageView->loadfileImage(m_plot->getimagefromqbuffer(index_vectorstring), filename);
     ImageView->show();
