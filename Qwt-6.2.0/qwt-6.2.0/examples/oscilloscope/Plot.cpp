@@ -215,7 +215,6 @@ void Plot::replot()
     curveData->values().unlock();
 }
 
-//void Plot::updateItemLegend(bool legendItem_checkState, const Settings& settings)
 void Plot::updateItemLegend(bool legendItem_checkState)
 {
     m_isDirty = false;

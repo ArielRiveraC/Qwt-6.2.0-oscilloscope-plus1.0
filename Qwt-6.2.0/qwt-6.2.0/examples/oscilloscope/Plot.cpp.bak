@@ -101,13 +101,8 @@ namespace
             gradient.setCoordinateMode( QGradient::StretchToDeviceMode );
             gradient.setColorAt( 0.0, QColor( 0, 49, 110 ) );
             gradient.setColorAt( 1.0, QColor( 0, 87, 174 ) );
-
             pal.setBrush( QPalette::Window, QBrush( gradient ) );
-
-            // QPalette::WindowText is used for the curve color
             pal.setColor( QPalette::WindowText, Qt::green );
-            //pal.setColor( QPalette::WindowText, Qt::red );
-
             setPalette( pal );
         }
     };
@@ -174,7 +169,7 @@ Plot::Plot( QWidget* parent )
     m_origin->setLineStyle( QwtPlotMarker::Cross );
     m_origin->setValue( m_interval.minValue() + m_interval.width() / 2.0, 0.0 );
     m_origin->setLinePen( Qt::gray, 0.0, Qt::DashLine );
-    m_origin->attach(this);
+    m_origin->attach( this );
 
     m_qvectorqbuffer = new QVector<QBuffer*>(0);
 
@@ -184,20 +179,12 @@ Plot::Plot( QWidget* parent )
     connect( m_levelWheel, SIGNAL(valueChanged(double)),
                            SLOT(scrollLeftAxis(double)) );
 
-    QwtText label("Amplitude: 10\nFrequency: 15");
-
-    //m_legendItem = new LegendItem();
-    //m_legendItem->attach( this );
-
-    updateItemLegend(true);
-
     m_curve = new QwtPlotCurve();
     m_curve->setStyle( QwtPlotCurve::Lines );
     m_curve->setPen( canvas()->palette().color( QPalette::WindowText ) );
     m_curve->setRenderHint( QwtPlotItem::RenderAntialiased, true );
     m_curve->setPaintAttribute( QwtPlotCurve::ClipPolygons, false );
     m_curve->setData( new CurveData() );
-    m_curve->setTitle(label);
     m_curve->attach( this );    
 }
 
@@ -219,14 +206,6 @@ void Plot::start()
 
 void Plot::replot()
 {
-//    if ( autoReplot() )
-//    {
-//        m_isDirty = true;
-//        return;
-//    }
-
-//    QwtPlot::replot();
-
     CurveData* curveData = static_cast< CurveData* >( m_curve->data() );
     curveData->values().lock();
 
@@ -242,7 +221,6 @@ void Plot::updateItemLegend(bool legendItem_checkState)
     m_isDirty = false;
     setAutoReplot( true );
 
-    //if ( settings.legendItem.isEnabled )
     if (legendItem_checkState == true)
     {
         if ( m_legendItem == NULL )
@@ -251,16 +229,10 @@ void Plot::updateItemLegend(bool legendItem_checkState)
             m_legendItem->attach( this );
         }
 
-        //m_legendItem->setMaxColumns( settings.legendItem.numColumns );
         m_legendItem->setMaxColumns(2);
-        //m_legendItem->setAlignmentInCanvas( Qt::Alignment( settings.legendItem.alignment ) );
-        m_legendItem->setAlignmentInCanvas( Qt::Alignment( Qt::AlignRight | Qt::AlignVCenter ) );
-        //m_legendItem->setBackgroundMode(
-        //    QwtPlotLegendItem::BackgroundMode( settings.legendItem.backgroundMode ) );
+        m_legendItem->setAlignmentInCanvas( Qt::Alignment( Qt::AlignRight | Qt::AlignTop ) );
         m_legendItem->setBackgroundMode( QwtPlotLegendItem::BackgroundMode( 0 ) );
 
-        //if ( settings.legendItem.backgroundMode ==
-        //    QwtPlotLegendItem::ItemBackground )
         if ( m_legendItem->backgroundMode() == QwtPlotLegendItem::ItemBackground )
         {
             m_legendItem->setBorderRadius( 4 );
@@ -277,7 +249,6 @@ void Plot::updateItemLegend(bool legendItem_checkState)
         }
 
         QFont font = m_legendItem->font();
-        //font.setPointSize( settings.legendItem.size );
         font.setPointSize(12);
         m_legendItem->setFont( font );
     }
@@ -295,87 +266,11 @@ void Plot::updateItemLegend(bool legendItem_checkState)
     }
 }
 
-//void Plot::setSettings( const Settings& settings)
-//{
-//    blockSignals( true );
-
-//    m_legend.checkBox->setCheckState(
-//        settings.legend.isEnabled ? Qt::Checked : Qt::Unchecked );
-//    m_legend.positionBox->setCurrentIndex( settings.legend.position );
-
-//    m_legendItem.checkBox->setCheckState(
-//        settings.legendItem.isEnabled ? Qt::Checked : Qt::Unchecked );
-
-//    m_legendItem.numColumnsBox->setValue( settings.legendItem.numColumns );
-
-//    int align = settings.legendItem.alignment;
-
-//    if ( align & Qt::AlignLeft )
-//        m_legendItem.hAlignmentBox->setCurrentIndex( 0 );
-//    else if ( align & Qt::AlignRight )
-//        m_legendItem.hAlignmentBox->setCurrentIndex( 2 );
-//    else
-//        m_legendItem.hAlignmentBox->setCurrentIndex( 1 );
-
-//    if ( align & Qt::AlignTop )
-//        m_legendItem.vAlignmentBox->setCurrentIndex( 0 );
-//    else if ( align & Qt::AlignBottom )
-//        m_legendItem.vAlignmentBox->setCurrentIndex( 2 );
-//    else
-//        m_legendItem.vAlignmentBox->setCurrentIndex( 1 );
-
-//    m_legendItem.backgroundBox->setCurrentIndex(
-//        settings.legendItem.backgroundMode );
-
-//    m_legendItem.sizeBox->setValue( settings.legendItem.size );
-
-//    m_curve.numCurves->setValue( settings.curve.numCurves );
-//    m_curve.title->setText( settings.curve.title );
-
-//    blockSignals( false );
-//}
-
-//Settings Plot::settings() const
-//{
-//    Settings s;
-
-//    s.legend.isEnabled =
-//        m_legend.checkBox->checkState() == Qt::Checked;
-//    s.legend.position = m_legend.positionBox->currentIndex();
-
-//    s.legendItem.isEnabled =
-//        m_legendItem.checkBox->checkState() == Qt::Checked;
-//    s.legendItem.numColumns = m_legendItem.numColumnsBox->value();
-
-//    int align = 0;
-
-//    int hIndex = m_legendItem.hAlignmentBox->currentIndex();
-//    if ( hIndex == 0 )
-//        align |= Qt::AlignLeft;
-//    else if ( hIndex == 2 )
-//        align |= Qt::AlignRight;
-//    else
-//        align |= Qt::AlignHCenter;
-
-//    int vIndex = m_legendItem.vAlignmentBox->currentIndex();
-//    if ( vIndex == 0 )
-//        align |= Qt::AlignTop;
-//    else if ( vIndex == 2 )
-//        align |= Qt::AlignBottom;
-//    else
-//        align |= Qt::AlignVCenter;
-
-//    s.legendItem.alignment = align;
-
-//    s.legendItem.backgroundMode =
-//        m_legendItem.backgroundBox->currentIndex();
-//    s.legendItem.size = m_legendItem.sizeBox->value();
-
-//    s.curve.numCurves = m_curve.numCurves->value();
-//    s.curve.title = m_curve.title->text();
-
-//    return s;
-//}
+void Plot::setCurveTitle(QString TextTitle)
+{
+     Plot::m_curve->setTitle(TextTitle);
+     replot();
+}
 
 void Plot::setIntervalLength( double interval )
 {
@@ -404,8 +299,6 @@ bool Plot::setStartTimer()
         return false;
     }
 }
-
-
 
 void Plot::updateCurve()
 {
@@ -516,10 +409,9 @@ bool Plot::eventFilter( QObject* object, QEvent* event )
     }
 
     return QwtPlot::eventFilter( object, event );
-
 }
 
-void Plot::getplotScreenShot(QString namefilepath, int width, int height )
+void Plot::getplotScreenShot(int width, int height )
 {
     QwtPlotRenderer renderer;
     QImage image( width, height, QImage::Format_ARGB32 );
@@ -527,37 +419,15 @@ void Plot::getplotScreenShot(QString namefilepath, int width, int height )
     QPainter painter( &image );
     renderer.render(this, &painter, QRectF( 0, 0, width, height ) );
     painter.end();
-    /*/ Debug*
-    image.save( namefilepath + ".png" );
-    /*/
+
     m_qbuffer = new QBuffer;
 
     if( image.save(m_qbuffer, "png") )
-    {
         m_qvectorqbuffer->append(m_qbuffer);
-
-        QImage image2;
-        image2.loadFromData( m_qbuffer->data() , nullptr);
-        /*/ Debug*
-        QByteArray bytes = m_qbuffer->buffer();
-        std::string pngHeader(bytes.constData(), 6);
-        QString qpngHeader = QString::fromStdString(pngHeader);
-        qDebug() <<" qpngHeader 1: " << qpngHeader;
-        /*/
-        image2.save( namefilepath + "QQQ" + ".png" );
-    }
 }
 
 QBuffer* Plot::getimagefromqbuffer(int bufferindex)
 {
-    m_qbuffer = new QBuffer;
-    m_qbuffer = m_qvectorqbuffer->at(bufferindex);
-    /*/ Debug*
-    QImage image1;
-    image1.loadFromData( m_qvectorqbuffer->at(bufferindex)->data() , nullptr);
-    image1.save( "C:\\Users\\USUARIO\\Desktop\\Debug output\\" +
-                  QString("eeee%1").arg(bufferindex) + ".png" );
-    /*/
     return m_qvectorqbuffer->at(bufferindex);
 }
 
