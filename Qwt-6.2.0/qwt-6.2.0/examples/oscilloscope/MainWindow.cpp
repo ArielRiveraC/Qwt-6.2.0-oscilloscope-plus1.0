@@ -164,6 +164,7 @@ void MainWindow::handle_Stopbutton()
 
 void MainWindow::handle_Capturebutton()
 {
+    QString fileBase = "C:\\Users\\USUARIO\\Desktop\\Debug output\\";
     QString time_format = "yyMMdd_HH-mm-ss_";
     QDateTime a = QDateTime::currentDateTime();
 
