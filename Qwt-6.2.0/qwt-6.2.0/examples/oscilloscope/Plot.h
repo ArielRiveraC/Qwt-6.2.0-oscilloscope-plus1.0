@@ -38,7 +38,6 @@ class Plot : public QwtPlot
     void setCurveTitle(QString);
     bool setStartTimer();
 
-
   public Q_SLOTS:
     void setIntervalLength(double);
     void updateItemLegend(bool);

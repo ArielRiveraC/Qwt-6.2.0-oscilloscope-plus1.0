@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Plot_t {
-    QByteArrayData data[3];
-    char stringdata0[24];
+    QByteArrayData data[11];
+    char stringdata0[134];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,22 @@ struct qt_meta_stringdata_Plot_t {
 static const qt_meta_stringdata_Plot_t qt_meta_stringdata_Plot = {
     {
 QT_MOC_LITERAL(0, 0, 4), // "Plot"
-QT_MOC_LITERAL(1, 5, 17), // "setIntervalLength"
-QT_MOC_LITERAL(2, 23, 0) // ""
+QT_MOC_LITERAL(1, 5, 6), // "edited"
+QT_MOC_LITERAL(2, 12, 0), // ""
+QT_MOC_LITERAL(3, 13, 17), // "setIntervalLength"
+QT_MOC_LITERAL(4, 31, 16), // "updateItemLegend"
+QT_MOC_LITERAL(5, 48, 17), // "getplotScreenShot"
+QT_MOC_LITERAL(6, 66, 19), // "getimagefromqbuffer"
+QT_MOC_LITERAL(7, 86, 8), // "QBuffer*"
+QT_MOC_LITERAL(8, 95, 13), // "getLevelWheel"
+QT_MOC_LITERAL(9, 109, 9), // "WheelBox*"
+QT_MOC_LITERAL(10, 119, 14) // "scrollLeftAxis"
 
     },
-    "Plot\0setIntervalLength\0"
+    "Plot\0edited\0\0setIntervalLength\0"
+    "updateItemLegend\0getplotScreenShot\0"
+    "getimagefromqbuffer\0QBuffer*\0getLevelWheel\0"
+    "WheelBox*\0scrollLeftAxis"
 };
 #undef QT_MOC_LITERAL
 
@@ -46,17 +57,33 @@ static const uint qt_meta_data_Plot[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   49,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x0a /* Public */,
+       3,    1,   50,    2, 0x0a /* Public */,
+       4,    1,   53,    2, 0x0a /* Public */,
+       5,    2,   56,    2, 0x0a /* Public */,
+       6,    1,   61,    2, 0x0a /* Public */,
+       8,    0,   64,    2, 0x0a /* Public */,
+      10,    1,   65,    2, 0x08 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::Double,    2,
+    QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
+    0x80000000 | 7, QMetaType::Int,    2,
+    0x80000000 | 9,
     QMetaType::Void, QMetaType::Double,    2,
 
        0        // eod
@@ -68,8 +95,26 @@ void Plot::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         Plot *_t = static_cast<Plot *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->setIntervalLength((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 0: _t->edited(); break;
+        case 1: _t->setIntervalLength((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 2: _t->updateItemLegend((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 3: _t->getplotScreenShot((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 4: { QBuffer* _r = _t->getimagefromqbuffer((*reinterpret_cast< int(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< QBuffer**>(_a[0]) = std::move(_r); }  break;
+        case 5: { WheelBox* _r = _t->getLevelWheel();
+            if (_a[0]) *reinterpret_cast< WheelBox**>(_a[0]) = std::move(_r); }  break;
+        case 6: _t->scrollLeftAxis((*reinterpret_cast< double(*)>(_a[1]))); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        void **func = reinterpret_cast<void **>(_a[1]);
+        {
+            typedef void (Plot::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Plot::edited)) {
+                *result = 0;
+                return;
+            }
         }
     }
 }
@@ -99,15 +144,21 @@ int Plot::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 7;
     }
     return _id;
+}
+
+// SIGNAL 0
+void Plot::edited()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -39,7 +39,7 @@ class MainWindow : public QWidget
     void handle_Capturebutton();
     void handle_ChangeColorbutton();
     void handle_legendItem_checkBox();
-    void handle_ItemClicked();
+    void handle_ItemDoubleClicked();
     void update_Curvetitle();
 
   Q_SIGNALS:

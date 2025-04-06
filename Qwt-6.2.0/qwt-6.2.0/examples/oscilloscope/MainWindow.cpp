@@ -72,7 +72,7 @@ MainWindow::MainWindow( QWidget* parent )
     connect( m_ChangeColorbutton, &QPushButton::released, this,
              &MainWindow::handle_ChangeColorbutton);
     connect( m_captureListWidget, &QListWidget::itemDoubleClicked, this,
-             &MainWindow::handle_ItemClicked);
+             &MainWindow::handle_ItemDoubleClicked);
     connect( m_legendItem_checkBox, &QCheckBox::released, this,
              &MainWindow::handle_legendItem_checkBox);
 
@@ -173,7 +173,7 @@ void MainWindow::handle_Capturebutton()
     m_plot->getplotScreenShot(800, 600);
 }
 
-void MainWindow::handle_ItemClicked()
+void MainWindow::handle_ItemDoubleClicked()
 {
     int index_vectorstring = m_captureListWidget->currentRow();
     QString filename = m_captureListWidget->item(index_vectorstring)->text() + ".png";
