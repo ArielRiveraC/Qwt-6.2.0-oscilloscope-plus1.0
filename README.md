@@ -20,6 +20,7 @@ Qwt-6.2.0 User's Guide_ Installing.pdf
 
 ![Descripción de la imagen](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/blob/b9bc36060212ede40ea62f888e664fd3c6c8947e/image1.png)
 
-<img src="[URL_DE_LA_IMAGEN](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/blob/b9bc36060212ede40ea62f888e664fd3c6c8947e/image1.png)" alt="Descripción de la imagen" width="100%" />
+<img src="URL_DE_LA_IMAGEN" alt="Descripción de la imagen" width="600" />
+<img src="https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/blob/b9bc36060212ede40ea62f888e664fd3c6c8947e/image1.png" alt="Descripción de la imagen" width="100%" />
 
 ![alt text](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/blob/b9bc36060212ede40ea62f888e664fd3c6c8947e/image1.png)
