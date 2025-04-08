@@ -21,11 +21,17 @@ Qwt-6.2.0 User's Guide_ Installing.pdf
 
 <img src="https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/blob/37f0b4a83351299eb36d6129dac17b17f7b3a288/image1.png" alt="Descripción de la imagen" width="60%" />
 
-Functionalities have been added with respect to the original code.
+Functionalities have been added with respect to the original code in: /qwt-6.2.0/examples/oscilloscope.
 
-1.- 
+
+1.-
+
 2.-
+
 3.-
+
 4.-
+
 5.-
+
 6.-
