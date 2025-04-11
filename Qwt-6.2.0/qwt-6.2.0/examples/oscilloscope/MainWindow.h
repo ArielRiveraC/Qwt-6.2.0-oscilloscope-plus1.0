@@ -8,17 +8,12 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QCheckBox>
-#include <QProcess>
 #include <QDateTime>
 #include <QListWidget>
-#include <QPixmap>
-
-#include "SamplingThread.h"
 
 class Plot;
 class Knob;
 class WheelBox;
-class QLabel;
 
 class MainWindow : public QWidget
 {
@@ -32,8 +27,6 @@ class MainWindow : public QWidget
     double amplitude() const;
     double frequency() const;
     double signalInterval() const;
-
-    void getSamplingThreadptr(SamplingThread*);
 
     void handle_Stopbutton();
     void handle_Capturebutton();
@@ -57,7 +50,6 @@ class MainWindow : public QWidget
     QPushButton* m_Capturebutton;
     QPushButton* m_ChangeColorbutton;
     QCheckBox* m_legendItem_checkBox;
-    SamplingThread* m_samplingThread;
     QListWidget* m_captureListWidget;
 
     Plot* m_plot;

@@ -18,9 +18,6 @@
 #include <QwtPlotDirectPainter>
 #include <QwtPlotRenderer>
 #include <QwtPainter>
-#include <qwt_text_label.h>
-
-#include <QApplication>
 #include <QPainter>
 #include <QEvent>
 
@@ -90,7 +87,7 @@ namespace
             }
 
             setupPalette();
-        }        
+        }
 
       private:
         void setupPalette()
@@ -101,8 +98,12 @@ namespace
             gradient.setCoordinateMode( QGradient::StretchToDeviceMode );
             gradient.setColorAt( 0.0, QColor( 0, 49, 110 ) );
             gradient.setColorAt( 1.0, QColor( 0, 87, 174 ) );
+
             pal.setBrush( QPalette::Window, QBrush( gradient ) );
+
+            // QPalette::WindowText is used for the curve color
             pal.setColor( QPalette::WindowText, Qt::green );
+
             setPalette( pal );
         }
     };
@@ -164,7 +165,6 @@ Plot::Plot( QWidget* parent )
     grid->enableYMin( false );
     grid->attach( this );
 
-
     m_origin = new QwtPlotMarker();
     m_origin->setLineStyle( QwtPlotMarker::Cross );
     m_origin->setValue( m_interval.minValue() + m_interval.width() / 2.0, 0.0 );
@@ -185,7 +185,7 @@ Plot::Plot( QWidget* parent )
     m_curve->setRenderHint( QwtPlotItem::RenderAntialiased, true );
     m_curve->setPaintAttribute( QwtPlotCurve::ClipPolygons, false );
     m_curve->setData( new CurveData() );
-    m_curve->attach( this );    
+    m_curve->attach( this );
 }
 
 Plot::~Plot()
@@ -278,6 +278,7 @@ void Plot::setIntervalLength( double interval )
         m_interval.setMaxValue( m_interval.minValue() + interval );
         setAxisScale( QwtAxis::XBottom,
             m_interval.minValue(), m_interval.maxValue() );
+
         replot();
     }
 }

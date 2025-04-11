@@ -9,12 +9,8 @@
 #include "WheelBox.h"
 #include "ImageWidget.h"
 
-#include <stdio.h>
 #include <QLayout>
-#include <QMessageBox>
 #include <QColorDialog>
-#include <qwt_text_label.h>
-
 
 MainWindow::MainWindow( QWidget* parent )
     : QWidget( parent )
@@ -77,23 +73,21 @@ MainWindow::MainWindow( QWidget* parent )
              &MainWindow::handle_legendItem_checkBox);
 
     connect( m_amplitudeKnob, SIGNAL(valueChanged(double)),
-             SIGNAL(amplitudeChanged(double)) );
+        SIGNAL(amplitudeChanged(double)) );
+
     connect( m_frequencyKnob, SIGNAL(valueChanged(double)),
-             SIGNAL(frequencyChanged(double)) );
+        SIGNAL(frequencyChanged(double)) );
+
     connect( m_timerWheel, SIGNAL(valueChanged(double)),
-             SIGNAL(signalIntervalChanged(double)) );
+        SIGNAL(signalIntervalChanged(double)) );
+
     connect( m_intervalWheel, SIGNAL(valueChanged(double)),
-             m_plot, SLOT(setIntervalLength(double)) );
+        m_plot, SLOT(setIntervalLength(double)) );
 }
 
 void MainWindow::start()
 {
     m_plot->start();
-}
-
-void MainWindow::getSamplingThreadptr(SamplingThread* samplingThread)
-{
-    m_samplingThread = samplingThread;
 }
 
 double MainWindow::frequency() const

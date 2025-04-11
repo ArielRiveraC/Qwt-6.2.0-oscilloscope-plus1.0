@@ -8,12 +8,8 @@
 #include <QwtPlot>
 #include <QVector>
 #include <QBuffer>
-#include <QDebug>
 #include <QwtInterval>
 #include <QElapsedTimer>
-
-#include "Settings.h"
-#include "MainWindow.h"
 
 class WheelBox;
 class QwtPlotCurve;
@@ -39,7 +35,7 @@ class Plot : public QwtPlot
     bool setStartTimer();
 
   public Q_SLOTS:
-    void setIntervalLength(double);
+    void setIntervalLength( double );
     void updateItemLegend(bool);
     void getplotScreenShot(int, int);
     QBuffer* getimagefromqbuffer(int);
@@ -50,9 +46,6 @@ class Plot : public QwtPlot
     virtual void resizeEvent( QResizeEvent* ) QWT_OVERRIDE;
     virtual void timerEvent( QTimerEvent* ) QWT_OVERRIDE;
 
-  Q_SIGNALS:
-    void edited();
-
   private Q_SLOTS:
     void scrollLeftAxis( double );
 
@@ -60,8 +53,8 @@ class Plot : public QwtPlot
     void updateCurve();
     void incrementInterval();
 
-    QwtPlotCurve* m_curve;
     QwtPlotMarker* m_origin;
+    QwtPlotCurve* m_curve;
     WheelBox* m_levelWheel;
     QwtPlotLegendItem* m_legendItem;
     bool m_isDirty;

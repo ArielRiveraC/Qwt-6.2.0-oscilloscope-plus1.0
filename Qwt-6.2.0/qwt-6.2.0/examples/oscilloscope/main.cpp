@@ -34,8 +34,6 @@ int main( int argc, char* argv[] )
     window.show();
 
     samplingThread.start();
-    window.getSamplingThreadptr(&samplingThread);
-
     window.start();
 
     const bool ok = app.exec();
