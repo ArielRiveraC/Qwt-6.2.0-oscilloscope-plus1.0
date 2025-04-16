@@ -26,14 +26,16 @@ Qwt-6.2.0 User's Guide_ Installing.pdf
 Functionalities have been added with respect to the original code in: /qwt-6.2.0/examples/oscilloscope.
 
 
-1.-
+1.- A checkbox was added to show and hide a LegendItem inside the Plot. This LegendItem shows the current amplitude and frequency..
 
-2.-
+2.- A QwtWheel control was added to vary the starting base level of the Y-axis.
 
-3.-
+3.- A QPushButton was added to stop or continue the data visualization in the Plot.
 
-4.-
+4.- A QPushButton was added to get a screenshot of the Plot.
 
-5.-
+5.- A QPushButton was added to change the color of the data curve shown in the Plot.
 
-6.-
+6.- A QListWidget control was added to store and display the title of the images obtained as screenshots of the Plot and kept in the memory of the application.
+
+7.- A window is created and displayed when an existing element is double-clicked inside the QListWidget control, the pop-up window displays the image obtained as a screenshot of the Plot.
