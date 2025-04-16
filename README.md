@@ -1,4 +1,7 @@
 # Qwt-6.2.0-oscilloscope-plus-1.0
+
+Project compiled and built in Qt Creator V4.3.1
+
 Project: 
 Qwt-6.2.0-oscilloscope-plus-1.0
 
