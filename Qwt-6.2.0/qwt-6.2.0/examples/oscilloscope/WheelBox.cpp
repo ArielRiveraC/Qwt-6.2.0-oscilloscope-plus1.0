@@ -6,6 +6,7 @@
 #include "WheelBox.h"
 
 #include <QwtWheel>
+
 #include <QLabel>
 #include <QLCDNumber>
 #include <QLayout>
@@ -38,7 +39,7 @@ namespace
                     pos, mapToGlobal( pos ),
                     we->pixelDelta(), we->angleDelta(),
                     we->buttons(), we->modifiers(),
-                    we->phase(), we->inverted() );
+                    we->phase(), we->inverted() );                    
 #else
                 QWheelEvent wheelEvent(
                     pos, we->delta(),

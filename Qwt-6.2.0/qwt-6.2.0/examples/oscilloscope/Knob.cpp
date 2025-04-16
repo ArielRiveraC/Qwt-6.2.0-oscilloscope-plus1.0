@@ -4,12 +4,10 @@
  *****************************************************************************/
 
 #include "Knob.h"
-
 #include <QwtMath>
 #include <QwtKnob>
 #include <QwtRoundScaleDraw>
 #include <QwtScaleEngine>
-
 #include <QLabel>
 #include <QResizeEvent>
 #include <qmath.h>

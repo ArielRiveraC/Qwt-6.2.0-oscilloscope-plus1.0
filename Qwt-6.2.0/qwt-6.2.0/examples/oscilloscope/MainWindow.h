@@ -19,8 +19,8 @@ class MainWindow : public QWidget
 {
     Q_OBJECT
 
-  public:
-    MainWindow( QWidget* = NULL );
+public:
+    MainWindow( QWidget * = NULL );
 
     void start();
 
