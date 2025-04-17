@@ -1,4 +1,4 @@
-# Qwt-6.2.0-oscilloscope-plus-1.0
+https://disk.yandex.com/d/STUVR_5MNkfhPQ# Qwt-6.2.0-oscilloscope-plus-1.0
 
 Project compiled and built in Qt Creator V4.3.1
 
@@ -41,3 +41,7 @@ Functionalities have been added with respect to the original code in: /qwt-6.2.0
 6.- A QListWidget control was added to store and display the title of the images obtained as screenshots of the Plot and kept in the memory of the application.
 
 7.- A window is created and displayed when an existing element is double-clicked inside the QListWidget control, the pop-up window displays the image obtained as a screenshot of the Plot.
+
+
+
+[You can test the app from here:](https://disk.yandex.com/d/STUVR_5MNkfhPQ)
