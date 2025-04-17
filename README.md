@@ -44,4 +44,4 @@ Functionalities have been added with respect to the original code in: /qwt-6.2.0
 
 
 
-[You can test the app from here:](https://disk.yandex.com/d/STUVR_5MNkfhPQ)
+[You can be the app (oscilloscope.exe) result of the compilation from here.](https://disk.yandex.com/d/STUVR_5MNkfhPQ)
