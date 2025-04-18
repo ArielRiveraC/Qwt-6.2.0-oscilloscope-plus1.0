@@ -1,6 +1,9 @@
 # Qwt-6.2.0-oscilloscope-plus-1.0
+
 [Pre-Release. Bin files (oscilloscope.exe)](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/archive/refs/tags/v1.0.zip)
+
 [Pre-Release. Bin files + source code](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/releases/tag/v1.0)
+
 
 Project compiled and built in Qt Creator V4.3.1
 
@@ -47,5 +50,7 @@ Functionalities have been added with respect to the original code in: /qwt-6.2.0
 
 
 You can test the app (oscilloscope.exe) result of the compilation from here: 
+
 [Pre-Release. Bin files (oscilloscope.exe)](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/archive/refs/tags/v1.0.zip)
+
 [Pre-Release. Bin files + source code](https://github.com/ArielRiveraC/Qwt-6.2.0-oscilloscope-plus1.0/releases/tag/v1.0)
