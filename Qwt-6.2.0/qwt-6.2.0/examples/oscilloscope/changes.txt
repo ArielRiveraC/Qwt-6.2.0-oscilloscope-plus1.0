@@ -1,127 +1,164 @@
 MainWindow.h:
 
-	line 9:		#include <QPushButton> -> 3, 4, 5
-				#include <QCheckBox>   -> 1  
-				#include <QDateTime>   -> 4, 6 
-				#include <QListWidget> -> 6 
+line 9:		
+	#include <QPushButton> -> 3, 4, 5
+	#include <QCheckBox>   -> 1  
+	#include <QDateTime>   -> 4, 6 
+	#include <QListWidget> -> 6 
 
 	
-	line 31: 	void handle_Stopbutton();           ->  3
-				void handle_Capturebutton();        ->  4
-				void handle_ChangeColorbutton();    ->  5
-				void handle_legendItem_checkBox();  ->  1
-				void handle_ItemDoubleClicked();    ->  6
-				void update_Curvetitle();           ->  1
+line 31: 	
+	void handle_Stopbutton();           ->  3
+	void handle_Capturebutton();        ->  4
+	void handle_ChangeColorbutton();    ->  5
+	void handle_legendItem_checkBox();  ->  1
+	void handle_ItemDoubleClicked();    ->  6
+	void update_Curvetitle();           ->  1
 			 
-	line 51: 	bool m_ispause = false;		        ->  3
+line 51: 	
+	bool m_ispause = false;		        ->  3
 
-	line 56: 	QPushButton* m_Stopbutton;          ->  3
-				QPushButton* m_Capturebutton;       ->  4 
-				QPushButton* m_ChangeColorbutton;   ->  5
-				QCheckBox* m_legendItem_checkBox;   ->  1
-				QListWidget* m_captureListWidget;	->  6
+line 56: 	
+    QPushButton* m_Stopbutton;          ->  3
+	QPushButton* m_Capturebutton;       ->  4 
+	QPushButton* m_ChangeColorbutton;   ->  5
+	QCheckBox* m_legendItem_checkBox;   ->  1
+	QListWidget* m_captureListWidget;	->  6
 		
 MainWindow.cpp:
 
-    line 10: 	#include "ImageWidget.h" -> 7
+line 10: 	
+	#include "ImageWidget.h" -> 7
 			 
-	line 14: 	#include <QColorDialog> -> 5  
+line 14: 	
+	#include <QColorDialog> -> 5  
 
-	line 39: 	m_Stopbutton = new QPushButton("Stop", this); -> 3
-				m_Stopbutton->setStyleSheet("color:red;font-weight:bold"); -> 3
-				m_Capturebutton = new QPushButton("Capture", this); -> 4
-			    m_Capturebutton->setStyleSheet("color:red;font-weight:bold"); -> 4
-				m_ChangeColorbutton = new QPushButton("Color", this); -> 5
-				m_ChangeColorbutton->setStyleSheet("color:red;font-weight:bold"); -> 5
+line 39: 	
+	m_Stopbutton = new QPushButton("Stop", this); -> 3
+	m_Stopbutton->setStyleSheet("color:red;font-weight:bold"); -> 3
+	m_Capturebutton = new QPushButton("Capture", this); -> 4
+	m_Capturebutton->setStyleSheet("color:red;font-weight:bold"); -> 4
+	m_ChangeColorbutton = new QPushButton("Color", this); -> 5
+	m_ChangeColorbutton->setStyleSheet("color:red;font-weight:bold"); -> 5
 
-				m_legendItem_checkBox = new QCheckBox( "Show Item Legend" ); -> 1
-				m_legendItem_checkBox->setCheckState(Qt::Unchecked); -> 1
+	m_legendItem_checkBox = new QCheckBox( "Show Item Legend" ); -> 1
+	m_legendItem_checkBox->setCheckState(Qt::Unchecked); -> 1
 			 
-	line 52: 	vLayout1->addWidget( m_plot->getLevelWheel() );	-> 2
+line 52: 	
+	vLayout1->addWidget( m_plot->getLevelWheel() );	-> 2
 
-    line 56: 	vLayout1->addWidget( m_legendItem_checkBox ); -> 1  
-				vLayout1->addWidget(m_Stopbutton); -> 3
-				vLayout1->addWidget(m_Capturebutton); -> 4
-				vLayout1->addWidget(m_ChangeColorbutton); -> 5
+line 56: 	
+	vLayout1->addWidget( m_legendItem_checkBox ); -> 1  
+	vLayout1->addWidget(m_Stopbutton); -> 3
+	vLayout1->addWidget(m_Capturebutton); -> 4
+	vLayout1->addWidget(m_ChangeColorbutton); -> 5
 
-				m_captureListWidget = new QListWidget(this); -> 6
-				vLayout1->addWidget(m_captureListWidget); -> 6	
+	m_captureListWidget = new QListWidget(this); -> 6
+	vLayout1->addWidget(m_captureListWidget); -> 6	
 			 
-	line 68: 	connect( m_Stopbutton, &QPushButton::released, this,
-									&MainWindow::handle_Stopbutton);  -> 3
-				connect( m_Capturebutton, &QPushButton::released, this,
-									&MainWindow::handle_Capturebutton); -> 4
-			    connect( m_ChangeColorbutton, &QPushButton::released, this,
-									&MainWindow::handle_ChangeColorbutton); -> 5
-			    connect( m_captureListWidget, &QListWidget::itemDoubleClicked, this,
-									&MainWindow::handle_ItemDoubleClicked); -> 6
-			    connect( m_legendItem_checkBox, &QCheckBox::released, this,
+line 68: 	
+	connect( m_Stopbutton, &QPushButton::released, this,
+			  			   &MainWindow::handle_Stopbutton);  -> 3
+	connect( m_Capturebutton, &QPushButton::released, this,
+							  &MainWindow::handle_Capturebutton); -> 4
+	connect( m_ChangeColorbutton, &QPushButton::released, this,
+								  &MainWindow::handle_ChangeColorbutton); -> 5
+	connect( m_captureListWidget, &QListWidget::itemDoubleClicked, this,
+								  &MainWindow::handle_ItemDoubleClicked); -> 6
+	connect( m_legendItem_checkBox, &QCheckBox::released, this,
 									&MainWindow::handle_legendItem_checkBox); -> 1		 
 									
-	line 98:    void MainWindow::frequencyChanged(double _t1) -> 1
-	line 117:   void MainWindow::amplitudeChanged(double _t1) -> 1		
-	line 125:   void MainWindow::update_Curvetitle() -> 1		  
-	line 138: 	void MainWindow::handle_ChangeColorbutton() -> 5
-	line 144: 	void MainWindow::handle_legendItem_checkBox() -> 1
-	line 155: 	void MainWindow::handle_Stopbutton() -> 3
-	line 163: 	void MainWindow::handle_Capturebutton() -> 4
-	line 176:   void MainWindow::handle_ItemDoubleClicked() -> 6, 7		
+line 98:    
+	void MainWindow::frequencyChanged(double _t1) -> 1
+line 117:   
+	void MainWindow::amplitudeChanged(double _t1) -> 1		
+line 125:   
+	void MainWindow::update_Curvetitle() -> 1		  
+line 138: 	
+	void MainWindow::handle_ChangeColorbutton() -> 5
+line 144: 	
+	void MainWindow::handle_legendItem_checkBox() -> 1
+line 155: 	
+	void MainWindow::handle_Stopbutton() -> 3
+line 163: 	
+	void MainWindow::handle_Capturebutton() -> 4
+line 176:   
+	void MainWindow::handle_ItemDoubleClicked() -> 6, 7		
 	
 	
 Plot.h:		
 
-	line 9: 	#include <QVector> -> 4, 6, 7  
-				#include <QBuffer> -> 4, 6
+line 9: 	
+	#include <QVector> -> 4, 6, 7  
+	#include <QBuffer> -> 4, 6
 								
-	line 14:    class WheelBox; -> 2			
+line 14:    
+	class WheelBox; -> 2			
 				
-	line 18     class QwtPlotLegendItem; -> 1	
+line 18     
+	class QwtPlotLegendItem; -> 1	
 	
-	line 33:    void setColorCurve(QColor color); -> 5
-				void setCurveTitle(QString); -> 1
-				bool setStartTimer(); -> 3
+line 33:    
+	void setColorCurve(QColor color); -> 5
+	void setCurveTitle(QString); -> 1
+	bool setStartTimer(); -> 3
 	
-	line 39:  	void updateItemLegend(bool); -> 1
-				void getplotScreenShot(int, int); -> 4
-				QBuffer* getimagefromqbuffer(int); -> 6, 7
-				WheelBox* getLevelWheel(); -> 2		
+line 39:  	
+	void updateItemLegend(bool); -> 1
+	void getplotScreenShot(int, int); -> 4
+	QBuffer* getimagefromqbuffer(int); -> 6, 7
+	WheelBox* getLevelWheel(); -> 2		
 				
-	line 49: 	private Q_SLOTS:
-					void scrollLeftAxis( double ); -> 1
-				QBuffer* m_qbuffer; -> 4, 6
-				QVector<QBuffer*>* m_qvectorqbuffer; -> 4, 6, 7
+line 49: 	
+	private Q_SLOTS:
+	void scrollLeftAxis( double ); -> 1
+	QBuffer* m_qbuffer; -> 4, 6
+	QVector<QBuffer*>* m_qvectorqbuffer; -> 4, 6, 7
 		
 Plot.cpp:
 			
-	line 8: 	#include "WheelBox.h" -> 2
-	line 14:    #include <QwtPlotLegendItem> -> 1
-	line 19:    #include <QwtPlotRenderer> -> 4
+line 8: 	
+	#include "WheelBox.h" -> 2
+line 14:    
+	#include <QwtPlotLegendItem> -> 1
+line 19:    
+	#include <QwtPlotRenderer> -> 4
 	
-	line 21:    #include <QPainter> -> 4
+line 21:    
+	#include <QPainter> -> 4
 	
-	line 26:    class LegendItem : public QwtPlotLegendItem{} -> 1
+line 26:    
+	class LegendItem : public QwtPlotLegendItem{} -> 1
 	
-	line 146:   , m_legendItem( NULL ) -> 1
-				, m_isDirty( false ) -> 1
+line 146:   
+	m_legendItem( NULL ) -> 1
+	m_isDirty( false ) -> 1
 				
-	line 174:	m_qvectorqbuffer = new QVector<QBuffer*>(0); -> 4, 6, 7
+line 174:	
+	m_qvectorqbuffer = new QVector<QBuffer*>(0); -> 4, 6, 7
 
-				m_levelWheel = new WheelBox( "Zero Level", -400.0, 0.0, 1.0 ); -> 2
-				m_levelWheel->setValue( -200.0 ); -> 2
+	m_levelWheel = new WheelBox( "Zero Level", -400.0, 0.0, 1.0 ); -> 2
+	m_levelWheel->setValue( -200.0 ); -> 2
 
-				connect( m_levelWheel, SIGNAL(valueChanged(double)),
-									   SLOT(scrollLeftAxis(double)) ); -> 2
+	connect( m_levelWheel, SIGNAL(valueChanged(double)),
+						   SLOT(scrollLeftAxis(double)) ); -> 2
 
-	line 196: 	WheelBox* Plot::getLevelWheel()	-> 2			
+line 196: 	
+	WheelBox* Plot::getLevelWheel()	-> 2			
 
-	line 218:   void Plot::updateItemLegend(bool legendItem_checkState) -> 1
+line 218:   
+	void Plot::updateItemLegend(bool legendItem_checkState) -> 1
 	
-	line 268: 	void Plot::setCurveTitle(QString TextTitle) -> 1
+line 268: 	
+	void Plot::setCurveTitle(QString TextTitle) -> 1
 	
-	line 286: 	void Plot::setColorCurve(QColor color) -> 5
+line 286: 	
+	void Plot::setColorCurve(QColor color) -> 5
 	
-	line 399: 	void Plot::scrollLeftAxis( double value ) -> 2
-	line 417:  	void Plot::getplotScreenShot(int width, int height ) -> 4
+line 399: 	
+	void Plot::scrollLeftAxis( double value ) -> 2
+line 417:  	
+	void Plot::getplotScreenShot(int width, int height ) -> 4
 	
 imagewidget.h	7
 
