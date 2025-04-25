@@ -19,7 +19,7 @@ line 51:
 	bool m_ispause = false;		        ->  3
 
 line 56: 	
-    QPushButton* m_Stopbutton;          ->  3
+	QPushButton* m_Stopbutton;          ->  3
 	QPushButton* m_Capturebutton;       ->  4 
 	QPushButton* m_ChangeColorbutton;   ->  5
 	QCheckBox* m_legendItem_checkBox;   ->  1
@@ -58,15 +58,15 @@ line 56:
 			 
 line 68: 	
 	connect( m_Stopbutton, &QPushButton::released, this,
-			  			   &MainWindow::handle_Stopbutton);  -> 3
+			&MainWindow::handle_Stopbutton);  -> 3
 	connect( m_Capturebutton, &QPushButton::released, this,
-							  &MainWindow::handle_Capturebutton); -> 4
+			&MainWindow::handle_Capturebutton); -> 4
 	connect( m_ChangeColorbutton, &QPushButton::released, this,
-								  &MainWindow::handle_ChangeColorbutton); -> 5
+			&MainWindow::handle_ChangeColorbutton); -> 5
 	connect( m_captureListWidget, &QListWidget::itemDoubleClicked, this,
-								  &MainWindow::handle_ItemDoubleClicked); -> 6
+			&MainWindow::handle_ItemDoubleClicked); -> 6
 	connect( m_legendItem_checkBox, &QCheckBox::released, this,
-									&MainWindow::handle_legendItem_checkBox); -> 1		 
+			&MainWindow::handle_legendItem_checkBox); -> 1		 
 									
 line 98:    
 	void MainWindow::frequencyChanged(double _t1) -> 1
@@ -141,7 +141,7 @@ line 174:
 	m_levelWheel->setValue( -200.0 ); -> 2
 
 	connect( m_levelWheel, SIGNAL(valueChanged(double)),
-						   SLOT(scrollLeftAxis(double)) ); -> 2
+			SLOT(scrollLeftAxis(double)) ); -> 2
 
 line 196: 	
 	WheelBox* Plot::getLevelWheel()	-> 2			
